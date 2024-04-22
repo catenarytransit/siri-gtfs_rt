@@ -1,0 +1,11 @@
+C:\Users\white\dev\catenary\siri-gtfs_rt\target\debug\deps\libparse_zoneinfo-1adbe0a86e3cdbc8.rmeta: C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\lib.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\line.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\structure.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\table.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\transitions.rs
+
+C:\Users\white\dev\catenary\siri-gtfs_rt\target\debug\deps\libparse_zoneinfo-1adbe0a86e3cdbc8.rlib: C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\lib.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\line.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\structure.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\table.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\transitions.rs
+
+C:\Users\white\dev\catenary\siri-gtfs_rt\target\debug\deps\parse_zoneinfo-1adbe0a86e3cdbc8.d: C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\lib.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\line.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\structure.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\table.rs C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\transitions.rs
+
+C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\lib.rs:
+C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\line.rs:
+C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\structure.rs:
+C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\table.rs:
+C:\Users\white\.cargo\registry\src\index.crates.io-6f17d22bba15001f\parse-zoneinfo-0.3.0\src\transitions.rs:

@@ -36,5 +36,5 @@ name = "processstatic"
 path = "src/static/process.rs"
 
 [lib]
-name = "siri-gtfs_rt"
+name = "siri_gtfs_rt"
 path = "src/lib.rs"
