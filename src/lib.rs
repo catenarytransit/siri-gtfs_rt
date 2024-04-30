@@ -93,7 +93,7 @@ struct Extensions {
     destination_name: String,
 }
 
-fn parse_data(data: String)  -> Result<SiriMessage, Box<dyn std::error::Error + Send + Sync>> {
+fn parse_data(data: String) -> Result<SiriMessage, Box<dyn std::error::Error + Send + Sync>> {
     let data: SiriMessage = from_str(&data)?;
     Ok(data)
 }
@@ -101,5 +101,48 @@ fn parse_data(data: String)  -> Result<SiriMessage, Box<dyn std::error::Error + 
 #[cfg(test)]
 mod tests {
     use super::*;
-}
 
+    #[test]
+    fn parse_data_is_ok() {
+        let data = String::from(
+            r#"
+            <Siri version="1.3">
+            <ResponseTimestamp>2024-04-29T21:40:18.063479-06:00</ResponseTimestamp>
+            <VehicleMonitoringDelivery version="1.3">
+            <ResponseTimestamp>2024-04-29T21:40:18.063479-06:00</ResponseTimestamp>
+            <ValidUntil>2024-04-29T21:40:28.063479-06:00</ValidUntil>
+            <VehicleActivity>
+            <RecordedAtTime>2024-04-29T21:40:18.063479-06:00</RecordedAtTime>
+            <MonitoredVehicleJourney>
+            <LineRef>2</LineRef>
+            <DirectionRef>TO U HOSPITAL</DirectionRef>
+            <FramedVehicleJourneyRef>
+            <DataFrameRef>2024-04-29T00:00:00-06:00</DataFrameRef>
+            <DatedVehicleJourneyRef>5308041</DatedVehicleJourneyRef>
+            </FramedVehicleJourneyRef>
+            <PublishedLineName>200 SOUTH</PublishedLineName>
+            <OriginRef>125332</OriginRef>
+            <DestinationRef>118161</DestinationRef>
+            <Monitored>True</Monitored>
+            <VehicleLocation>
+            <Longitude>-111.90993133333333</Longitude>
+            <Latitude>40.764484833333334</Latitude>
+            </VehicleLocation>
+            <ProgressRate>1</ProgressRate>
+            <CourseOfJourneyRef>511113</CourseOfJourneyRef>
+            <VehicleRef>23109</VehicleRef>
+            <Extensions>
+            <LastGPSFix>2024-04-29T21:40:09.763</LastGPSFix>
+            <Scheduled>False</Scheduled>
+            <Bearing>163.7</Bearing>
+            <Speed>0</Speed>
+            <DestinationName>University Hospital</DestinationName>
+            </Extensions>
+            </MonitoredVehicleJourney>
+            </VehicleActivity>
+            </VehicleMonitoringDelivery>
+            </Siri>"#,
+        );
+        println!("{}", data);
+    }
+}
