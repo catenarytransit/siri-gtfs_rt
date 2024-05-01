@@ -1,6 +1,6 @@
 use gtfs_rt::*;
 use serde::Deserialize;
-use serde_json::from_str;
+use serde_xml_rs::from_str;
 
 pub fn get_gtfs_rt() -> Result<gtfs_rt::FeedMessage, Box<dyn std::error::Error + Send + Sync>> {
     Err(Box::new(std::io::Error::new(
