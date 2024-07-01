@@ -10,7 +10,7 @@ pub fn get_gtfs_rt() -> Result<gtfs_rt::FeedMessage, Box<dyn std::error::Error +
 }
 
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone)]
 struct Siri {
     #[serde(rename = "ResponseTimestamp")]
 	response_timestamp: String,
@@ -18,7 +18,7 @@ struct Siri {
 	vehicle_monitoring_delivery: VehicleMonitoringDelivery,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone)]
 struct VehicleMonitoringDelivery {
     #[serde(rename = "ResponseTimestamp")]
 	response_timestamp: String,
@@ -28,7 +28,7 @@ struct VehicleMonitoringDelivery {
 	vehicle_activity: VehicleActivity,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone)]
 struct VehicleActivity {
     #[serde(rename = "RecordedAtTime")]
 	recorded_at_time: String,
@@ -36,7 +36,7 @@ struct VehicleActivity {
 	monitored_vehicle_journey: Vec<MonitoredVehicleJourney>,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone)]
 struct MonitoredVehicleJourney {
     #[serde(rename = "LineRef")]
 	line_ref: String,
@@ -64,7 +64,7 @@ struct MonitoredVehicleJourney {
 	extensions: Extensions,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone)]
 struct FramedVehicleJourneyRef {
     #[serde(rename = "DataFrameRef")]
 	data_frame_ref: String,
@@ -72,7 +72,7 @@ struct FramedVehicleJourneyRef {
 	dated_vehicle_journey_ref: u32,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone)]
 struct VehicleLocation {
     #[serde(rename = "Longitude")]
 	longitude: f32,
@@ -80,7 +80,7 @@ struct VehicleLocation {
 	latitude: f32,
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Clone)]
 struct Extensions {
     #[serde(rename = "LastGPSFix")]
 	last_gpsfix: String,
