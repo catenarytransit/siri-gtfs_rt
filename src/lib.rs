@@ -2,6 +2,8 @@ use gtfs_rt::*;
 use serde::Deserialize;
 use serde_json;
 
+const API_KEY: &str = "UYEHABM01C9";
+
 pub async fn get_gtfs_rt() -> Result<gtfs_rt::FeedMessage, Box<dyn std::error::Error + Send + Sync>> {
     Err(Box::new(std::io::Error::new(
         std::io::ErrorKind::Other,
@@ -11,44 +13,63 @@ pub async fn get_gtfs_rt() -> Result<gtfs_rt::FeedMessage, Box<dyn std::error::E
 
 #[derive(Deserialize, Clone)]
 struct ServiceDelivery {
-	VehicleMonitoringDelivery: VehicleMonitoringDelivery,
-	ResponseTimestamp: String,		//time
+    #[serde(rename = "vehicleMonitoringDelivery")]
+	vehicle_monitoring_delivery: VehicleMonitoringDelivery,
+    #[serde(rename = "responseTimestamp")]
+	response_timestamp: String,
 }
 
 #[derive(Deserialize, Clone)]
 struct VehicleMonitoringDelivery {
-	VehicleActivity: Option<Vec<VehicleActivity>>,
-	ValidUntil: String, 			//time
-	ResponseTimestamp: String, 		//time
+    #[serde(rename = "vehicleActivity")]
+	vehicle_activity: Option<Vec<VehicleActivity>>,
+    #[serde(rename = "validUntil")]
+	valid_until: String,
+    #[serde(rename = "responseTimestamp")]
+	response_timestamp: String,
 }
 
 #[derive(Deserialize, Clone)]
 struct VehicleActivity {
-	MonitoredVehicleJourney: MonitoredVehicleJourney,
-	RecordedAtTime: String,			//time
+    #[serde(rename = "monitoredVehicleJourney")]
+	monitored_vehicle_journey: MonitoredVehicleJourney,
+    #[serde(rename = "recordedAtTime")]
+	recorded_at_time: String,
 }
 
 #[derive(Deserialize, Clone)]
 struct MonitoredVehicleJourney {
-	Extensions: Extensions,
-	LineRef: LineRef,
-	FramedVehicleJourneyRef: FramedVehicleJourneyRef,
-	PublishedLineName: Vec<PublishedLineName>,
-	DirectionName: Vec<DirectionName>,
-	OriginRef: OriginRef,
-	DestinationRef: DestinationRef,
-	DestinationName: Vec<DestinationName>,
-	Monitored: bool,
-	VehicleLocation: VehicleLocation,
-	Bearing: f32,
-	ProgressStatus: Vec<ProgressStatus>,
-	CourseOfJourneyRef: CourseOfJourneyRef,
-	VehicleRef: VehicleRef,
+	extensions: Extensions,
+    #[serde(rename = "lineRef")]
+	line_ref: LineRef,
+    #[serde(rename = "framedVehicleJourneyRef")]
+	framed_vehicle_journey_ref: FramedVehicleJourneyRef,
+    #[serde(rename = "publishedLineName")]
+	published_line_name: Vec<PublishedLineName>,
+    #[serde(rename = "directionName")]
+    direction_name: Vec<DirectionName>,
+    #[serde(rename = "originRef")]
+	origin_ref: OriginRef,
+    #[serde(rename = "destinationRef")]
+	destination_ref: DestinationRef,
+    #[serde(rename = "destinationName")]
+	destination_name: Vec<DestinationName>,
+	monitored: bool,
+    #[serde(rename = "vehicleLocation")]
+	vehicle_location: VehicleLocation,
+	bearing: f32,
+    #[serde(rename = "progressStatus")]
+	progress_status: Vec<ProgressStatus>,
+    #[serde(rename = "courseOfJourneyRef")]
+	course_of_journey_ref: CourseOfJourneyRef,
+    #[serde(rename = "vehicleRef")]
+	vehicle_ref: VehicleRef,
 }
 
 #[derive(Deserialize, Clone)]
 struct Extensions {
-	LastGPSFix: String,			//time
+    #[serde(rename = "lastGPSFix")]
+	last_gps_fix: String,			//time
 }
 
 #[derive(Deserialize, Clone)]
@@ -58,8 +79,10 @@ struct LineRef {
 
 #[derive(Deserialize, Clone)]
 struct FramedVehicleJourneyRef {
-	DataFrameRef: DataFrameRef,
-	DatedVehicleJourneyRef: i32,
+    #[serde(rename = "dataFrameRef")]
+	data_frame_ref: DataFrameRef,
+    #[serde(rename = "datedVehicleJourneyRef")]
+	dated_vehicle_journey_ref: i32,
 }
 
 #[derive(Deserialize, Clone)]
