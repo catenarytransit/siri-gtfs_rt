@@ -1,6 +1,8 @@
 use gtfs_rt::*;
 use serde::Deserialize;
-use serde_json;
+use serde_json::from_str;
+use std::fs;
+use std::env;
 
 const API_KEY: &str = "UYEHABM01C9";
 
@@ -9,6 +11,12 @@ pub async fn get_gtfs_rt() -> Result<gtfs_rt::FeedMessage, Box<dyn std::error::E
         std::io::ErrorKind::Other,
         "Invalid String",
     )))
+}
+
+#[derive(Deserialize, Clone)]
+struct Siri {
+    #[serde(rename = "serviceDelivery")]
+    service_delivery: ServiceDelivery,
 }
 
 #[derive(Deserialize, Clone)]
@@ -136,10 +144,10 @@ struct DataFrameRef {
     value: String,
 }
 
-// fn parse_data(data: String) -> Result<Siri, Box<dyn std::error::Error + Send + Sync>> {
-//     // let data: Siri = from_str(&data)?;
-//     // Ok(data)
-// }
+fn parse_data(data: String) -> Result<Siri, Box<dyn std::error::Error + Send + Sync>> {
+    let data: Siri = from_str(&data)?;
+    Ok(data)
+}
 
 #[cfg(test)]
 mod tests {
@@ -147,10 +155,11 @@ mod tests {
 
     #[test]
     fn parse_data_is_ok() {
-        // let data = String::from();
-        // println!("{}", data);
-        // let data = parse_data(data);
-        // assert!(data.is_ok());
+        let locations = fs::read_to_string("C:\\Users\\white\\dev\\catenary\\siri-gtfs_rt\\example-import-data\\locations.json").unwrap();
+        let data = String::from(locations);
+        println!("{}", data);
+        let data = parse_data(data);
+        assert!(data.is_ok());
     }
 
     #[tokio::test]
