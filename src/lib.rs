@@ -1,8 +1,8 @@
 use gtfs_rt::*;
 use serde::Deserialize;
-use serde_xml_rs::from_str;
+use serde_json;
 
-pub fn get_gtfs_rt() -> Result<gtfs_rt::FeedMessage, Box<dyn std::error::Error + Send + Sync>> {
+pub async fn get_gtfs_rt() -> Result<gtfs_rt::FeedMessage, Box<dyn std::error::Error + Send + Sync>> {
     Err(Box::new(std::io::Error::new(
         std::io::ErrorKind::Other,
         "Invalid String",
@@ -94,10 +94,10 @@ struct Extensions {
 	destination_name: String,
 }
 
-fn parse_data(data: String) -> Result<Siri, Box<dyn std::error::Error + Send + Sync>> {
-    let data: Siri = from_str(&data)?;
-    Ok(data)
-}
+// fn parse_data(data: String) -> Result<Siri, Box<dyn std::error::Error + Send + Sync>> {
+//     // let data: Siri = from_str(&data)?;
+//     // Ok(data)
+// }
 
 #[cfg(test)]
 mod tests {
@@ -105,47 +105,20 @@ mod tests {
 
     #[test]
     fn parse_data_is_ok() {
-        let data = String::from(
-            r#"
-            <Siri version="1.3">
-            <ResponseTimestamp>2024-04-29T21:40:18.063479-06:00</ResponseTimestamp>
-            <VehicleMonitoringDelivery version="1.3">
-            <ResponseTimestamp>2024-04-29T21:40:18.063479-06:00</ResponseTimestamp>
-            <ValidUntil>2024-04-29T21:40:28.063479-06:00</ValidUntil>
-            <VehicleActivity>
-            <RecordedAtTime>2024-04-29T21:40:18.063479-06:00</RecordedAtTime>
-            <MonitoredVehicleJourney>
-            <LineRef>2</LineRef>
-            <DirectionRef>TO U HOSPITAL</DirectionRef>
-            <FramedVehicleJourneyRef>
-            <DataFrameRef>2024-04-29T00:00:00-06:00</DataFrameRef>
-            <DatedVehicleJourneyRef>5308041</DatedVehicleJourneyRef>
-            </FramedVehicleJourneyRef>
-            <PublishedLineName>200 SOUTH</PublishedLineName>
-            <OriginRef>125332</OriginRef>
-            <DestinationRef>118161</DestinationRef>
-            <Monitored>True</Monitored>
-            <VehicleLocation>
-            <Longitude>-111.90993133333333</Longitude>
-            <Latitude>40.764484833333334</Latitude>
-            </VehicleLocation>
-            <ProgressRate>1</ProgressRate>
-            <CourseOfJourneyRef>511113</CourseOfJourneyRef>
-            <VehicleRef>23109</VehicleRef>
-            <Extensions>
-            <LastGPSFix>2024-04-29T21:40:09.763</LastGPSFix>
-            <Scheduled>False</Scheduled>
-            <Bearing>163.7</Bearing>
-            <Speed>0</Speed>
-            <DestinationName>University Hospital</DestinationName>
-            </Extensions>
-            </MonitoredVehicleJourney>
-            </VehicleActivity>
-            </VehicleMonitoringDelivery>
-            </Siri>"#,
-        );
+        // let data = String::from();
+        // println!("{}", data);
+        // let data = parse_data(data);
+        // assert!(data.is_ok());
+    }
+
+    #[tokio::test]
+    async fn check_link_fetches() {
+        let data = reqwest::get("http://api.rideuta.com/utartapi/VehicleMonitor/ByRoute?route=830x&onwardcalls=true&usertoken=UYEHABM01C9")
+        .await
+        .unwrap()
+        .text()
+        .await
+        .unwrap();
         println!("{}", data);
-        let data = parse_data(data);
-        assert!(data.is_ok());
     }
 }

@@ -1,0 +1,400 @@
+{
+    "serviceDelivery": {
+      "vehicleMonitoringDelivery": {
+        "vehicleActivity": [
+          {
+            "monitoredVehicleJourney": {
+              "extensions": {
+                "lastGPSFix": "2024-07-06T19:17:46.783"
+              },
+              "lineRef": {
+                "value": "830X"
+              },
+              "framedVehicleJourneyRef": {
+                "dataFrameRef": {
+                  "value": "2024-07-06"
+                },
+                "datedVehicleJourneyRef": "5314959"
+              },
+              "publishedLineName": [
+                {
+                  "value": "UTAH VALLEY EXPRESS"
+                }
+              ],
+              "directionName": [
+                {
+                  "value": "NB TO OREM STN"
+                }
+              ],
+              "originRef": {
+                "value": "830298"
+              },
+              "destinationRef": {
+                "value": "830264"
+              },
+              "destinationName": [
+                {
+                  "value": "Orem Central Station"
+                }
+              ],
+              "monitored": true,
+              "vehicleLocation": {
+                "latitude": 40.225019333333336,
+                "longitude": -111.66082483333334
+              },
+              "bearing": 95.2,
+              "progressStatus": [
+                {
+                  "value": "OnTime"
+                }
+              ],
+              "courseOfJourneyRef": {
+                "value": "55375"
+              },
+              "vehicleRef": {
+                "value": "17101"
+              }
+            },
+            "recordedAtTime": "2024-07-06T19:17:51.9794458-06:00"
+          },
+          {
+            "monitoredVehicleJourney": {
+              "extensions": {
+                "lastGPSFix": "2024-07-06T19:17:43.317"
+              },
+              "lineRef": {
+                "value": "830X"
+              },
+              "framedVehicleJourneyRef": {
+                "dataFrameRef": {
+                  "value": "2024-07-06"
+                },
+                "datedVehicleJourneyRef": "5314932"
+              },
+              "publishedLineName": [
+                {
+                  "value": "UTAH VALLEY EXPRESS"
+                }
+              ],
+              "directionName": [
+                {
+                  "value": "NB TO OREM STN"
+                }
+              ],
+              "originRef": {
+                "value": "830298"
+              },
+              "destinationRef": {
+                "value": "830264"
+              },
+              "destinationName": [
+                {
+                  "value": "Orem Central Station"
+                }
+              ],
+              "monitored": true,
+              "vehicleLocation": {
+                "latitude": 40.273503,
+                "longitude": -111.69472166666667
+              },
+              "bearing": 270.5,
+              "progressStatus": [
+                {
+                  "value": "OnTime"
+                }
+              ],
+              "courseOfJourneyRef": {
+                "value": "57888"
+              },
+              "vehicleRef": {
+                "value": "17105"
+              }
+            },
+            "recordedAtTime": "2024-07-06T19:17:51.9922157-06:00"
+          },
+          {
+            "monitoredVehicleJourney": {
+              "extensions": {
+                "lastGPSFix": "2024-07-06T19:17:49.94",
+                "speed": 16.686600000000002
+              },
+              "lineRef": {
+                "value": "830X"
+              },
+              "framedVehicleJourneyRef": {
+                "dataFrameRef": {
+                  "value": "2024-07-06"
+                },
+                "datedVehicleJourneyRef": "5314992"
+              },
+              "publishedLineName": [
+                {
+                  "value": "UTAH VALLEY EXPRESS"
+                }
+              ],
+              "directionName": [
+                {
+                  "value": "NB TO OREM STN"
+                }
+              ],
+              "originRef": {
+                "value": "830298"
+              },
+              "destinationRef": {
+                "value": "830264"
+              },
+              "destinationName": [
+                {
+                  "value": "Orem Central Station"
+                }
+              ],
+              "monitored": true,
+              "vehicleLocation": {
+                "latitude": 40.2271765,
+                "longitude": -111.65870483333333
+              },
+              "bearing": 0.8,
+              "progressStatus": [
+                {
+                  "value": "OnTime"
+                }
+              ],
+              "courseOfJourneyRef": {
+                "value": "57892"
+              },
+              "vehicleRef": {
+                "value": "17109"
+              }
+            },
+            "recordedAtTime": "2024-07-06T19:17:52.0058663-06:00"
+          },
+          {
+            "monitoredVehicleJourney": {
+              "extensions": {
+                "lastGPSFix": "2024-07-06T19:17:44.63",
+                "speed": 24.28188
+              },
+              "lineRef": {
+                "value": "830X"
+              },
+              "framedVehicleJourneyRef": {
+                "dataFrameRef": {
+                  "value": "2024-07-06"
+                },
+                "datedVehicleJourneyRef": "5314966"
+              },
+              "publishedLineName": [
+                {
+                  "value": "UTAH VALLEY EXPRESS"
+                }
+              ],
+              "directionName": [
+                {
+                  "value": "NB TO OREM STN"
+                }
+              ],
+              "originRef": {
+                "value": "830298"
+              },
+              "destinationRef": {
+                "value": "830264"
+              },
+              "destinationName": [
+                {
+                  "value": "Orem Central Station"
+                }
+              ],
+              "monitored": true,
+              "vehicleLocation": {
+                "latitude": 40.255818833333336,
+                "longitude": -111.65521033333333
+              },
+              "bearing": 270.5,
+              "progressStatus": [
+                {
+                  "value": "OnTime"
+                }
+              ],
+              "courseOfJourneyRef": {
+                "value": "57895"
+              },
+              "vehicleRef": {
+                "value": "17112"
+              }
+            },
+            "recordedAtTime": "2024-07-06T19:17:52.0201399-06:00"
+          },
+          {
+            "monitoredVehicleJourney": {
+              "extensions": {
+                "lastGPSFix": "2024-07-06T19:17:48",
+                "speed": 23.5914
+              },
+              "lineRef": {
+                "value": "830X"
+              },
+              "framedVehicleJourneyRef": {
+                "dataFrameRef": {
+                  "value": "2024-07-06"
+                },
+                "datedVehicleJourneyRef": "5314862"
+              },
+              "publishedLineName": [
+                {
+                  "value": "UTAH VALLEY EXPRESS"
+                }
+              ],
+              "directionName": [
+                {
+                  "value": "SB TO PROVO STN"
+                }
+              ],
+              "originRef": {
+                "value": "830264"
+              },
+              "destinationRef": {
+                "value": "830274"
+              },
+              "destinationName": [
+                {
+                  "value": "Provo Central Station"
+                }
+              ],
+              "monitored": true,
+              "vehicleLocation": {
+                "latitude": 40.2566095,
+                "longitude": -111.64396216666667
+              },
+              "bearing": 90.1,
+              "progressStatus": [
+                {
+                  "value": "OnTime"
+                }
+              ],
+              "courseOfJourneyRef": {
+                "value": "57903"
+              },
+              "vehicleRef": {
+                "value": "17118"
+              }
+            },
+            "recordedAtTime": "2024-07-06T19:17:52.0366928-06:00"
+          },
+          {
+            "monitoredVehicleJourney": {
+              "extensions": {
+                "lastGPSFix": "2024-07-06T19:17:48.83",
+                "speed": 3.1071600000000004
+              },
+              "lineRef": {
+                "value": "830X"
+              },
+              "framedVehicleJourneyRef": {
+                "dataFrameRef": {
+                  "value": "2024-07-06"
+                },
+                "datedVehicleJourneyRef": "5314833"
+              },
+              "publishedLineName": [
+                {
+                  "value": "UTAH VALLEY EXPRESS"
+                }
+              ],
+              "directionName": [
+                {
+                  "value": "SB TO PROVO STN"
+                }
+              ],
+              "originRef": {
+                "value": "830264"
+              },
+              "destinationRef": {
+                "value": "830274"
+              },
+              "destinationName": [
+                {
+                  "value": "Provo Central Station"
+                }
+              ],
+              "monitored": true,
+              "vehicleLocation": {
+                "latitude": 40.273567166666666,
+                "longitude": -111.700599
+              },
+              "bearing": 89.8,
+              "progressStatus": [
+                {
+                  "value": "OnTime"
+                }
+              ],
+              "courseOfJourneyRef": {
+                "value": "57907"
+              },
+              "vehicleRef": {
+                "value": "17122"
+              }
+            },
+            "recordedAtTime": "2024-07-06T19:17:52.0675681-06:00"
+          },
+          {
+            "monitoredVehicleJourney": {
+              "extensions": {
+                "lastGPSFix": "2024-07-06T19:17:51.59"
+              },
+              "lineRef": {
+                "value": "830X"
+              },
+              "framedVehicleJourneyRef": {
+                "dataFrameRef": {
+                  "value": "2024-07-06"
+                },
+                "datedVehicleJourneyRef": "5314891"
+              },
+              "publishedLineName": [
+                {
+                  "value": "UTAH VALLEY EXPRESS"
+                }
+              ],
+              "directionName": [
+                {
+                  "value": "SB TO PROVO STN"
+                }
+              ],
+              "originRef": {
+                "value": "830274"
+              },
+              "destinationRef": {
+                "value": "830274"
+              },
+              "destinationName": [
+                {
+                  "value": "East Bay - Provo Central Station"
+                }
+              ],
+              "monitored": true,
+              "vehicleLocation": {
+                "latitude": 40.214482,
+                "longitude": -111.660495
+              },
+              "bearing": 122.6,
+              "progressStatus": [
+                {
+                  "value": "OnTime"
+                }
+              ],
+              "courseOfJourneyRef": {
+                "value": "57909"
+              },
+              "vehicleRef": {
+                "value": "17124"
+              }
+            },
+            "recordedAtTime": "2024-07-06T19:17:52.0821588-06:00"
+          }
+        ],
+        "validUntil": "2024-07-06T19:18:01.9449033-06:00",
+        "responseTimestamp": "2024-07-06T19:17:51.944903-06:00"
+      },
+      "responseTimestamp": "2024-07-06T19:17:51.9448968-06:00"
+    }
+  }
