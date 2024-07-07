@@ -24,7 +24,6 @@ reqwest = {version = "0.11.22", features = ["brotli", "json"]}
 rgb = "0.8.36"
 serde = { version = "1.0.188", features = ["derive"] }
 serde_json = "1.0.107"
-serde-xml-rs = "0.6.0"
 tokio = {version = "1.32.0", features = ["full"] }
 vincenty-core = "1.0.0"
 

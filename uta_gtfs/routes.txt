@@ -1,0 +1,86 @@
+route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color,route_text_color
+87708,,1,South Temple,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/1-Rose-Park-South-Temple,2eb566,FFFFFF
+45408,,17,1700 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/17-1700-South,004a97,FFFFFF
+2003,,2,200 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/2-200-South,2eb566,FFFFFF
+27610,,200,STATE STREET NORTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/200-State-Street-North,2eb566,FFFFFF
+44246,,201,STATE STREET SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/201-State-Street-South,004a97,FFFFFF
+27614,,205,500 EAST,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/205-500-East,004a97,FFFFFF
+27613,,209,900 EAST / 9TH Ave,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/209-900-East,2eb566,FFFFFF
+2022,,21,2100 SOUTH / 2100 EAST,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/21-2100-South-2100-East,2eb566,FFFFFF
+32878,,213,1300 EAST / 1100 EAST,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/213-1300-East-1100-East,004a97,FFFFFF
+45407,,217,REDWOOD ROAD,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/217-Redwood-Road,2eb566,FFFFFF
+45422,,218,SOUTH JORDAN,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/218-Sandy---South-Jordan,004a97,FFFFFF
+45418,,220,HIGHLAND DRIVE / 1300 EAST,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/220-Highland-Drive-1300-East,004a97,FFFFFF
+20160,,223,2300 EAST/ HOLLADAY BLVD,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/223-2300-East-Holladay-Blvd,004a97,FFFFFF
+20161,,227,2700 WEST,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/227-2700-West,004a97,FFFFFF
+34504,,240,4000 WEST/ DIXIE VALLEY,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/240-4000-West-Dixie-Valley,004a97,FFFFFF
+34505,,248,4800 WEST,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/248-4800-West,004a97,FFFFFF
+2328,,33,3300 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/354-Sandy-U-of-U-Fast-Bus,2eb566,FFFFFF
+2332,,35,3500 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/35-3500-South,2eb566,FFFFFF
+93045,,39,3900 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/39-3900-South,2eb566,FFFFFF
+79372,,4,400 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/4-400-South-Foothill-Drive,004a97,FFFFFF
+2343,,45,4500 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/45-4500-South,004a97,FFFFFF
+19902,,451,TOOELE FAST BUS,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/451-Tooele-Fast-Bus,be2036,FFFFFF
+19906,,455,U OF U/DAVIS COUNTY/WSU,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/455-UofU-Davis-County-Weber-State-University,004a97,FFFFFF
+51572,,47,4700 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/47-4700-South,004a97,FFFFFF
+19930,,470,OGDEN - SALT LAKE INTERCITY,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/470-Ogden-Salt-Lake-Intercity,004a97,FFFFFF
+87522,,472,RIVERDALE / SALT LAKE EXPRESS,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/472-Riverdale-Salt-Lake-Express,be2036,FFFFFF
+19936,,473,SLC - OGDEN HWY 89 EXPRESS,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/473-Ogden-Salt-Lake-Express-via-Highway-89,be2036,FFFFFF
+25310,,509,900 W SHUTTLE,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/509-900-W-Shuttle,004a97,FFFFFF
+33284,,513,INDUSTRIAL BUSINESS PARK SHUTTLE,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/513-Industrial-Business-Park-Shuttle,be2036,FFFFFF
+2053,,54,5400 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/54-5400-South,004a97,FFFFFF
+41354,,551,INTERNATIONAL CENTER,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/551-International-Center,be2036,FFFFFF
+81586,,601,OGDEN TROLLEY,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/601-Ogden-Trolley,004a97,FFFFFF
+90585,,602,OGX WILDCAT SHUTTLE,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/602-Wildcat-Shuttle,1191d0,FFFFFF
+92235,,603X,Ogden Express (OGX),,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/603x-Ogden-Express,1191d0,FFFFFF
+2116,,604,WEST OGDEN,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/604-West-Ogden,004a97,FFFFFF
+84595,,606,ENABLE INDUTRIES,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/606-Enable-Industries-Monroe-Blvd,be2036,FFFFFF
+2121,,612,WASHINGTON BLVD,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/612-Washington-Blvd,2eb566,FFFFFF
+2122,,613,WEBER INDUSTRIAL PARK,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/613-Weber-Industrial-Park,004a97,FFFFFF
+2061,,62,6200 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/62-6200-South,004a97,FFFFFF
+9605,,625,ATC / HARRISON BLVD / WSU,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/625-ATC---Harrison-Blvd---WSU,004a97,FFFFFF
+2128,,626,WEST ROY /  CLFD STAT,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/626-West-Roy-WSU-Davis,004a97,FFFFFF
+2129,,627,CLFD STATION  /  DATC,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/627-WSU-Davis-DTC,004a97,FFFFFF
+64546,,628,MIDTOWN TROLLEY,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/628-Midtown-Trolley,004a97,FFFFFF
+2131,,630,BRIGHAM CITY/ OGDEN COMMUTER,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/630-Brigham-City-Ogden-Comm,004a97,FFFFFF
+2133,,640,LAYTON HILLS MALL / WSU OGDEN CAMP,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/640-Layton-Hills-Mall---WSU-Ogden-Camp,004a97,FFFFFF
+9606,,645,MONROE BLVD,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/645-Monroe-Blvd,004a97,FFFFFF
+48862,,667,LAGOON /  STATION PARK SHUTTLE,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/667-Lagoon-Shuttle,004a97,FFFFFF
+88549,,674,OGDEN  /  POWDER MOUNTAIN,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/674-Powder-Mountain,000000,FFFFFF
+88744,,675,SNOWBASIN / OGDEN  SKI,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/675-Snowbasin-Ski-Service,000000,FFFFFF
+88745,,677,LAYTON  /  SNOWBASIN,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/677-Layton-Snowbasin-Ski-Service,000000,FFFFFF
+5907,,701,Blue Line,,0,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/701-Blue-Line,004a97,FFFFFF
+8246,,703,Red Line,,0,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/703-Red-Line,be2036,FFFFFF
+39020,,704,Green Line,,0,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/704-Green-Line,2eb566,FFFFFF
+2069,,72,7200 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/72-7200-South,004a97,FFFFFF
+45389,,720,S-Line,,0,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/720-S-Line,77777a,FFFFFF
+41065,,750,FrontRunner,,2,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/750-FrontRunner,c227b9,FFFFFF
+37499,,805,SANTAQUIN/PAYSON/SF/PROVO STN/UVU,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/805-Santaquin-Payson-Spanish-Fork-Provo-Station-UVU,be2036,FFFFFF
+2152,,806,EAGLE MTN/SARATOGA SPR/LEHI STN/UVU,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/806-Eagle-MTN-Saratoga-Springs-Lehi-Station-UVU,be2036,FFFFFF
+2153,,807,NORTH COUNTY/LEHI STATION/UVU,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/807-North-County-Lehi-Station-UVU,be2036,FFFFFF
+10810,,821,SOUTH COUNTY/PROVO STATION,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/821-South-County---Provo-Station,004a97,FFFFFF
+35675,,822,SOUTH UTAH COUNTY BYU/UVU LIMITED,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/822-South-Utah-County-BYU-UVU-Limited,be2036,FFFFFF
+3686,,830X,UTAH VALLEY EXPRESS,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/830X-Utah-Valley-Express,1191d0,FFFFFF
+3711,,831,PROVO GRANDVIEW,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/831-Provo-Grandview,004a97,FFFFFF
+3713,,833,AIRPORT/PROVO STATION,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/833-Airport---Provo-Station,004a97,FFFFFF
+39024,,834,VINEYARD/RIVERWOODS/ PROVO STATION,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/834-Riverwoods---Provo-Station,004a97,FFFFFF
+37811,,850,STATE STREET,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/850-State-Street,2eb566,FFFFFF
+3687,,862,OREM EAST/WEST,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/862-Orem-East-West,004a97,FFFFFF
+2368,,871,TECH CORRIDOR RAIL CONNECTOR,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/871-Tech-Corridor-Rail-Connector,004a97,FFFFFF
+45409,,9,900 SOUTH,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/9-900-South,2eb566,FFFFFF
+65123,,972,BINGHM JNCT/SOL BRIGHTN,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/972-Midvale-Ft-Union-Station-To-Solitude-Brighton,000000,FFFFFF
+65743,,994,90TH SO TRAX/SNWBRD/ALTA,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/994-Historic-Sandy-Station-To-Snowbird-Alta,000000,FFFFFF
+87443,,F11,11TH AVENUE FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F11-11th-Ave-Flex,004a97,FFFFFF
+87445,,F202,SANDY PARKWAY FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F202-Bingham-Junction-Flex,004a97,FFFFFF
+87442,,F232,3200 WEST FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F232-3200-W-Flex,004a97,FFFFFF
+76841,,F453,TOOELE SLC FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F453-Tooele-SLC-Flex,004a97,FFFFFF
+48851,,F514,JORDAN GATEWAY FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F514-300-West-Flex,004a97,FFFFFF
+87444,,F525,MIDVALE FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F525-Midvale-Flex,004a97,FFFFFF
+34520,,F556,5600 WEST FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F556-5600-W-Flex,004a97,FFFFFF
+34521,,F570,7000 SOUTH FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F570-7000-S-Flex,004a97,FFFFFF
+34522,,F578,7800 SOUTH FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F578-7800-S-Flex,004a97,FFFFFF
+45424,,F590,9000 SOUTH FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F590-9000-S-Flex,004a97,FFFFFF
+33219,,F618,OGDEN BDO FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F618-Ogden-BDO-Flex,004a97,FFFFFF
+73422,,F620,WEST HAVEN FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F620-West-Haven-Flex,004a97,FFFFFF
+21305,,F638,THE BRIGHAM CITY Flex,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F638-The-Brigham-City,004a97,FFFFFF
+20201,,F94,9400 SOUTH FLEX,,3,https://www.rideuta.com/Rider-Tools/Schedules-and-Maps/F94-Sandy-Flex,004a97,FFFFFF
