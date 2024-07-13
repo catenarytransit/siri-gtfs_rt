@@ -730,8 +730,7 @@ async fn main() {
                                     if stringofdeparturetime.contains("$") {
                                         canceldeparturesindex = Some(stopnumber + 1);
 
-                                        println!("Cancelled all boardings with at least {} stopnumber on line {} at time {}:{}", canceldeparturesindex.unwrap(), route.short_name, 
-                                    
+                                        println!("Cancelled all boardings with at least {} stopnumber on line {} at time {}:{}", canceldeparturesindex.unwrap(), route.short_name,
                                         (initialtime + offset) / 3600, ((initialtime + offset )% 3600) / 60
                                     )
                                     }
