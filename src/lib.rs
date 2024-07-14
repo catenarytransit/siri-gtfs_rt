@@ -1,6 +1,7 @@
 use gtfs_rt::*;
 use serde::{Deserialize, Serialize};
 use serde_json::from_str;
+use chrono::{DateTime, FixedOffset, ParseResult};
 
 const API_KEY: &str = "UYEHABM01C9";
 
@@ -126,6 +127,80 @@ struct VehicleRef {
 #[derive(Serialize, Deserialize, Clone, Debug)]
 struct DataFrameRef {
     value: String,
+}
+
+struct Vehicle {
+	last_GPS_update: DateTime<FixedOffset>,
+	line_number: String,
+	date: DateTime<FixedOffset>,
+	vehicle_journey_ref: i32,
+	line_name: Vec<String>,
+	direction_name: Vec<String>,
+	origin_code: i32,
+	destination_code: i32,
+	destination_name: Vec<String>,
+	is_monitored: bool,
+	latitude: f32,
+	longitude: f32,
+	bearing: f32,
+	progress_status: Vec<String>,
+	course_of_journey_ref: i32,
+	vehicle_number: u16,
+    time_recorded: DateTime<FixedOffset>,
+}
+
+impl VehicleMonitoringDelivery {
+    fn get_response_timestamp(&self) -> ParseResult<DateTime<FixedOffset>> {
+        DateTime::parse_from_rfc3339(&self.response_timestamp)
+    }
+
+    fn get_valid_until(&self) -> ParseResult<DateTime<FixedOffset>> {
+        DateTime::parse_from_rfc3339(&self.valid_until)
+    }
+
+    fn get_vehicles(&self) -> Option<Vec<Vehicle>> {
+        let vehicle_activities = &self.vehicle_activity.clone()?;
+        let mut vehicles: Vec<Vehicle> = vec![];
+        for vehicle_activity in vehicle_activities {
+            let mut line_names: Vec<String> = vec![];
+            for line_name in vehicle_activity.monitored_vehicle_journey.published_line_name.clone() {
+                line_names.append(&mut vec![line_name.value]);
+            }
+            let mut direction_names: Vec<String> = vec![];
+            for direction_name in vehicle_activity.monitored_vehicle_journey.direction_name.clone() {
+                direction_names.append(&mut vec![direction_name.value]);
+            }
+            let mut destination_names: Vec<String> = vec![];
+            for destination_name in vehicle_activity.monitored_vehicle_journey.destination_name.clone() {
+                destination_names.append(&mut vec![destination_name.value]);
+            }
+            let mut progress_statuses: Vec<String> = vec![];
+            for progress_status in vehicle_activity.monitored_vehicle_journey.progress_status.clone() {
+                progress_statuses.append(&mut vec![progress_status.value]);
+            }
+            let vehicle = Vehicle {
+                last_GPS_update: DateTime::parse_from_rfc3339(&vehicle_activity.monitored_vehicle_journey.extensions.last_gps_fix).unwrap_or_default(),
+                line_number: vehicle_activity.monitored_vehicle_journey.line_ref.value.clone(),
+                date: DateTime::parse_from_rfc3339(&vehicle_activity.monitored_vehicle_journey.framed_vehicle_journey_ref.data_frame_ref.value).unwrap_or_default(),
+                vehicle_journey_ref: vehicle_activity.monitored_vehicle_journey.framed_vehicle_journey_ref.dated_vehicle_journey_ref.parse::<i32>().unwrap_or_default(),
+                line_name: line_names,
+                direction_name: direction_names,
+                origin_code: vehicle_activity.monitored_vehicle_journey.origin_ref.value.parse::<i32>().unwrap_or_default(),
+                destination_code: vehicle_activity.monitored_vehicle_journey.destination_ref.value.parse::<i32>().unwrap_or_default(),
+                destination_name: destination_names,
+                is_monitored: vehicle_activity.monitored_vehicle_journey.monitored,
+                latitude: vehicle_activity.monitored_vehicle_journey.vehicle_location.latitude,
+                longitude: vehicle_activity.monitored_vehicle_journey.vehicle_location.longitude,
+                bearing: vehicle_activity.monitored_vehicle_journey.bearing,
+                progress_status: progress_statuses,
+                course_of_journey_ref: vehicle_activity.monitored_vehicle_journey.course_of_journey_ref.value.parse::<i32>().unwrap_or_default(),
+                vehicle_number: vehicle_activity.monitored_vehicle_journey.vehicle_ref.value.parse::<u16>().unwrap_or_default(),
+                time_recorded: DateTime::parse_from_rfc3339(&vehicle_activity.recorded_at_time).unwrap_or_default(),
+            };
+            vehicles.append(&mut vec![vehicle]);
+        }
+        Some(vehicles)
+    }
 }
 
 fn parse_data(data: String) -> Result<Siri, Box<dyn std::error::Error + Send + Sync>> {
