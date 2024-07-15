@@ -1,4 +1,5 @@
 use gtfs_rt::*;
+use gtfs_structures::Gtfs;
 use serde::{Deserialize, Serialize};
 use serde_json::from_str;
 use chrono::{DateTime, FixedOffset, ParseResult};
@@ -140,20 +141,20 @@ impl VehicleMonitoringDelivery {
 }
 
 impl VehicleActivity {
-    fn get_feed_entity(&self) -> gtfs_rt::FeedEntity {
+    fn get_feed_entity(&self, gtfs: Gtfs) -> gtfs_rt::FeedEntity {
         FeedEntity {
             id: todo!(),
             is_deleted: Some(false),
             trip_update: None,
-            vehicle: Some(self.get_vehicle_position()),
+            vehicle: Some(self.get_vehicle_position(gtfs)),
             alert: todo!(),
             shape: todo!(),
         }
     }
 
-    fn get_vehicle_position(&self) -> gtfs_rt::VehiclePosition {
+    fn get_vehicle_position(&self, gtfs: Gtfs) -> gtfs_rt::VehiclePosition {
         VehiclePosition {
-            trip: todo!(),
+            trip: Some(self.get_trip_descriptor(gtfs)),
             vehicle: todo!(),
             position: todo!(),
             current_stop_sequence: todo!(),
@@ -167,7 +168,7 @@ impl VehicleActivity {
         }
     }
 
-    fn get_trip_descriptor(&self) -> gtfs_rt::TripDescriptor {
+    fn get_trip_descriptor(&self, gtfs: Gtfs) -> gtfs_rt::TripDescriptor {
         TripDescriptor {
             trip_id: Some(String::from("")),
             route_id: Some(self.monitored_vehicle_journey.line_ref.value.clone()),
