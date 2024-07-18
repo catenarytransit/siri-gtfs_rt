@@ -1,8 +1,9 @@
+use chrono::{DateTime, FixedOffset, ParseResult};
 use gtfs_rt::*;
-use gtfs_structures::Gtfs;
+use gtfs_structures::*;
 use serde::{Deserialize, Serialize};
 use serde_json::from_str;
-use chrono::{DateTime, FixedOffset, ParseResult};
+use vehicle_position::CarriageDetails;
 
 const API_KEY: &str = "UYEHABM01C9";
 
@@ -12,6 +13,13 @@ pub async fn get_gtfs_rt() -> Result<gtfs_rt::FeedMessage, Box<dyn std::error::E
         std::io::ErrorKind::Other,
         "Invalid String",
     )))
+}
+
+fn parse_data(
+    data: String,
+) -> Result<VehicleMonitoringDelivery, Box<dyn std::error::Error + Send + Sync>> {
+    let data: Siri = from_str(&data)?;
+    Ok(data.service_delivery.vehicle_monitoring_delivery)
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -130,59 +138,194 @@ struct DataFrameRef {
     value: String,
 }
 
+/**
+ * Impl block for VehicleMonitoringDelivery, aka a set of vehicles from an api call.
+ */
 impl VehicleMonitoringDelivery {
+    /**
+     * Fetches the response timestamp.
+     */
     fn get_response_timestamp(&self) -> ParseResult<DateTime<FixedOffset>> {
         DateTime::parse_from_rfc3339(&self.response_timestamp)
     }
 
+    /**
+     * Fetches the expiration timestamp.
+     */
     fn get_valid_until(&self) -> ParseResult<DateTime<FixedOffset>> {
         DateTime::parse_from_rfc3339(&self.valid_until)
     }
+
+    /**
+     * Creates a feed message using data from each vehicle and the response timestamp.
+     * only function out of these impl blocks that should be used.
+     */
+    fn get_feed_message(&self, gtfs: &Gtfs) -> Option<gtfs_rt::FeedMessage> {
+        Some(FeedMessage {
+            header: self.get_feed_header(),
+            entity: self.get_feed_entities(gtfs),
+        })
+    }
+
+    /**
+     * Creates a feed header by converting the response timestamp into a unix
+     * timestamp.
+     */
+    fn get_feed_header(&self) -> gtfs_rt::FeedHeader {
+        FeedHeader {
+            gtfs_realtime_version: String::from("2.0"),
+            incrementality: Some(1),
+            timestamp: Some(
+                self.get_response_timestamp()
+                    .unwrap_or_default()
+                    .timestamp() as u64,
+            ),
+        }
+    }
+
+    /**
+     * Creates a feed entity for each vehicle in the siri call and compiles them into
+     * a vector.
+     */
+    fn get_feed_entities(&self, gtfs: &Gtfs) -> Vec<gtfs_rt::FeedEntity> {
+        let vehicles = match &self.vehicle_activity {
+            Some(x) => x,
+            None => return Vec::new(),
+        };
+        let mut entities: Vec<FeedEntity> = Vec::new();
+
+        // for every vehicle
+        for vehicle in vehicles {
+            match vehicle.get_feed_entity(gtfs) {
+                // if vehicle creates a valid feed_entity
+                Some(x) => entities.push(x),
+                // else add nothing
+                None => (),
+            }
+        }
+        entities
+    }
 }
 
+/**
+ * Impl block for VehicleActivity, aka an individual vehicle from an api call. This
+ * block is only intended to be called within the VehicleMonitoringDelivery Impl
+ * block.
+ */
 impl VehicleActivity {
-    fn get_feed_entity(&self, gtfs: Gtfs) -> gtfs_rt::FeedEntity {
-        FeedEntity {
-            id: todo!(),
+    /**
+     * Creates a feed entity using this vehicle and gtfs data.
+     */
+    fn get_feed_entity(&self, gtfs: &Gtfs) -> Option<gtfs_rt::FeedEntity> {
+        let trip = match gtfs.get_trip(
+            &self
+                .monitored_vehicle_journey
+                .framed_vehicle_journey_ref
+                .dated_vehicle_journey_ref,
+        ) {
+            Ok(x) => x,
+            Err(_) => return None,
+        };
+        Some(FeedEntity {
+            id: trip.id.clone(),
             is_deleted: Some(false),
             trip_update: None,
-            vehicle: Some(self.get_vehicle_position(gtfs)),
-            alert: todo!(),
-            shape: todo!(),
-        }
+            vehicle: Some(self.get_vehicle_position(&trip)),
+            alert: None,
+            shape: None,
+        })
     }
 
-    fn get_vehicle_position(&self, gtfs: Gtfs) -> gtfs_rt::VehiclePosition {
+    /**
+     * Creates a vehicle position (trip description, vehicle description, position,
+     * time, etc.) using this vehicle and it's trip data.
+     */
+    fn get_vehicle_position(&self, trip: &Trip) -> gtfs_rt::VehiclePosition {
         VehiclePosition {
-            trip: Some(self.get_trip_descriptor(gtfs)),
-            vehicle: todo!(),
-            position: todo!(),
-            current_stop_sequence: todo!(),
-            stop_id: todo!(),
-            current_status: todo!(),
-            timestamp: todo!(),
-            congestion_level: todo!(),
-            occupancy_status: todo!(),
-            occupancy_percentage: todo!(),
-            multi_carriage_details: todo!(),
+            trip: self.get_trip_descriptor(trip),
+            vehicle: self.get_vehicle_descriptor(trip),
+            position: self.get_position(),
+            current_stop_sequence: None,
+            stop_id: None,
+            current_status: None,
+            timestamp: Some(
+                DateTime::parse_from_rfc3339(
+                    &self.monitored_vehicle_journey.extensions.last_gps_fix,
+                )
+                .unwrap_or_default()
+                .timestamp() as u64,
+            ),
+            congestion_level: None,
+            occupancy_status: None,
+            occupancy_percentage: None,
+            multi_carriage_details: vec![self.get_carriage_details()],
         }
     }
 
-    fn get_trip_descriptor(&self, gtfs: Gtfs) -> gtfs_rt::TripDescriptor {
-        TripDescriptor {
-            trip_id: Some(String::from("")),
-            route_id: Some(self.monitored_vehicle_journey.line_ref.value.clone()),
-            direction_id: Some(0),
-            start_time: todo!(),
-            start_date: todo!(),
-            schedule_relationship: todo!(),
+    /**
+     * Creates a trip descriptor (route number and id, direction, etc.) using this
+     * vehicle and it's trip data.
+     */
+    fn get_trip_descriptor(&self, trip: &Trip) -> Option<gtfs_rt::TripDescriptor> {
+        let direction_id = match trip.direction_id {
+            Some(direction) => match direction {
+                DirectionType::Outbound => 0,
+                DirectionType::Inbound => 1,
+            },
+            None => return None,
+        };
+        Some(TripDescriptor {
+            trip_id: Some(trip.id.clone()),
+            route_id: Some(trip.route_id.clone()),
+            direction_id: Some(direction_id),
+            start_time: None,
+            start_date: None,
+            schedule_relationship: None,
+        })
+    }
+
+    /**
+     * Creates a vehicle descriptor (accessibility, vehicle id, etc.) using this
+     * vehicle and it's trip data.
+     */
+    fn get_vehicle_descriptor(&self, trip: &Trip) -> Option<gtfs_rt::VehicleDescriptor> {
+        let wheelchair_accessible = match trip.wheelchair_accessible {
+            Availability::Available => Some(1),
+            Availability::NotAvailable => Some(0),
+            _ => None,
+        };
+        Some(VehicleDescriptor {
+            id: Some(self.monitored_vehicle_journey.vehicle_ref.value.clone()),
+            label: Some(self.monitored_vehicle_journey.vehicle_ref.value.clone()),
+            license_plate: None,
+            wheelchair_accessible: wheelchair_accessible,
+        })
+    }
+
+    /**
+     * Creates a position (latitude, longitude, bearing, speed, etc.) using this
+     * vehicle.
+     */
+    fn get_position(&self) -> Option<gtfs_rt::Position> {
+        Some(Position {
+            latitude: self.monitored_vehicle_journey.vehicle_location.latitude,
+            longitude: self.monitored_vehicle_journey.vehicle_location.longitude,
+            bearing: Some(self.monitored_vehicle_journey.bearing),
+            odometer: None,
+            speed: None,
+        })
+    }
+
+    /** Creates a carriage detail (id, label, etc.) using this vehicle. */
+    fn get_carriage_details(&self) -> gtfs_rt::vehicle_position::CarriageDetails {
+        CarriageDetails {
+            id: Some(self.monitored_vehicle_journey.vehicle_ref.value.clone()),
+            label: Some(self.monitored_vehicle_journey.vehicle_ref.value.clone()),
+            occupancy_status: None,
+            occupancy_percentage: None,
+            carriage_sequence: Some(1),
         }
     }
-}
-
-fn parse_data(data: String) -> Result<Siri, Box<dyn std::error::Error + Send + Sync>> {
-    let data: Siri = from_str(&data)?;
-    Ok(data)
 }
 
 #[cfg(test)]
@@ -210,8 +353,6 @@ mod tests {
         let expected2: f32 = 40.214482;
         let vehicle_0_origin_ref = data
             .clone()
-            .service_delivery
-            .vehicle_monitoring_delivery
             .vehicle_activity
             .unwrap()
             .get(0)
@@ -223,8 +364,6 @@ mod tests {
             .unwrap();
         let vehicle_6_latitude = data
             .clone()
-            .service_delivery
-            .vehicle_monitoring_delivery
             .vehicle_activity
             .unwrap()
             .get(6)
