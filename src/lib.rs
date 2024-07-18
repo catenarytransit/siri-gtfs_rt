@@ -313,7 +313,8 @@ impl VehicleActivity {
             longitude: self.monitored_vehicle_journey.vehicle_location.longitude,
             bearing: Some(self.monitored_vehicle_journey.bearing),
             odometer: None,
-            speed: self.monitored_vehicle_journey.extensions.speed,
+            // divide mph by 2.237 to get m/s
+            speed: Some(self.monitored_vehicle_journey.extensions.speed.unwrap_or_default() / 2.237),
         })
     }
 
