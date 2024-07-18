@@ -70,9 +70,10 @@ struct MonitoredVehicleJourney {
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
 struct Extensions {
-    #[serde(rename = "lastGPSFix")]
-    last_gps_fix: String, //time
+    last_gps_fix: String,
+    speed: Option<f32>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -84,7 +85,7 @@ struct LineRef {
 #[serde(rename_all = "camelCase")]
 struct FramedVehicleJourneyRef {
     data_frame_ref: DataFrameRef,
-    dated_vehicle_journey_ref: String, //i32
+    dated_vehicle_journey_ref: String,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -99,17 +100,17 @@ struct DirectionName {
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 struct OriginRef {
-    value: String, //i32, origin station code
+    value: String,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 struct DestinationRef {
-    value: String, //i32, destination station code
+    value: String,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 struct DestinationName {
-    value: String, //destination station name
+    value: String,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -125,12 +126,12 @@ struct ProgressStatus {
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 struct CourseOfJourneyRef {
-    value: String, //i32
+    value: String,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 struct VehicleRef {
-    value: String, //u16
+    value: String,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -312,7 +313,7 @@ impl VehicleActivity {
             longitude: self.monitored_vehicle_journey.vehicle_location.longitude,
             bearing: Some(self.monitored_vehicle_journey.bearing),
             odometer: None,
-            speed: None,
+            speed: self.monitored_vehicle_journey.extensions.speed,
         })
     }
 
