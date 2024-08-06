@@ -1,4 +1,4 @@
-# siri-gtfs_rt
+# siri-gtfs_rt (OBSOLETE, UTA no longer uses SIRI VM)
 Repository for converting siri to gtfs_rt, developed specifically for UTA
 
 UTA INFO:
